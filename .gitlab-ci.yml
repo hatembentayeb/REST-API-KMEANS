@@ -19,10 +19,10 @@ devloppement:
          - echo -e " Start Building Docker image from Docker file ..  "
          - docker build -t $HEROKU_APP .
          - echo -e "\n build complete\n\n Start pushing image to registry.heroku.com ..."
-         - docker login -u "hatem ben tayeb" -p $HEROKU_TOKEN registry.heroku.com
+         - docker login --username=_ -p $HEROKU_TOKEN registry.heroku.com
          - docker push $HEROKU_APP
          - echo -e " push complete ."
          - echo -e " Start pushing the app to the developpement server .. "
-         - docker run --rm -e HEROKU_API_KEY=$HEROKU_TOKEN wingrunr21/alpine-heroku-cli container:release web --app datascience-club
+         - docker run  --rm -v ~/.netrc:/root/.netrc:ro -e HEROKU_API_KEY=$HEROKU_TOKEN wingrunr21/alpine-heroku-cli container:release web --app datascience-club
          - echo -e " complete"
     
