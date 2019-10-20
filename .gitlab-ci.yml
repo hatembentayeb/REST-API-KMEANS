@@ -1,0 +1,29 @@
+image : docker:latest
+
+services:
+  - docker:dind
+
+variables:
+    DOCKER_DRIVER: overlay
+
+stages:
+    - devloppement
+    - staging
+    - production
+    
+
+
+
+devloppement:
+    stage : devloppement
+    script:
+         - echo -e " Start Building Docker image from Docker file ..  "
+         - docker build -t $HEROKU_APP_DEV .
+         - echo -e "\n build complete\n\n Start pushing image to registry.heroku.com ..."
+         - docker login -u hatemBT -p $HEROKU_TOKEN registry.heroku.com
+         - docker push $HEROKU_APP_DEV
+         - echo -e " push complete ."
+         - echo -e " Start pushing the app to the developpement server .. "
+         - docker run --rm -e HEROKU_API_KEY=$HEROKU_TOKEN wingrunr21/alpine-heroku-cli container:release web --app btxdeveloppment
+         - echo -e " complete"
+    
