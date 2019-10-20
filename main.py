@@ -2,6 +2,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score
 import json
+import os
 from flask import Flask,jsonify,request
 app = Flask(__name__)
 
@@ -28,4 +29,4 @@ def kmeans_pred():
     return jsonify(feeds)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=os.environ.get('PORT'))
