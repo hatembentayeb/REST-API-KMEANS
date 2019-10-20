@@ -5,9 +5,9 @@ A simple demo of kmeans clustering on text input via REST API based on flask µ-
 
 To build the docker image use this command:
 
-    * `git clone https://github.com/hatemBT/REST-API-KMEANS`
-    * `cd REST-API-KMEANS`
-    * `docker build -t kmeans-rest .`
+   * `git clone https://github.com/hatemBT/REST-API-KMEANS`
+   * `cd REST-API-KMEANS`
+   * `docker build -t kmeans-rest .`
 
 After buiding the image check it by typing ` docker images `
 
