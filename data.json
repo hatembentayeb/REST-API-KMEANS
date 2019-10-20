@@ -1,0 +1,8 @@
+{
+    "num_cluster":2,
+    "data":"Every machine learning algorithm works best under a given set of conditions. 
+    Making sure your algorithm fits the assumptions / requirements ensures superior performance.
+     You can’t use any algorithm in any condition. For e.g.: We can’t use linear regression on a categorical dependent variable. 
+     Because we won’t be appreciated for getting extremely low values of adjusted R² and F statistic. 
+     Instead, in such situations, we should try using algorithms such as Logistic Regression, Decision Trees, Support Vector Machine (SVM), Random Forest, etc."
+}
