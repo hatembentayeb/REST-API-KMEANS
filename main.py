@@ -36,4 +36,4 @@ def kmeans_pred():
     return jsonify(feeds)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=3000)#port=os.environ.get('PORT'))
+    app.run(host="0.0.0.0", port=os.environ.get('PORT'))
