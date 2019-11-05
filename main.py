@@ -2,11 +2,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score
 import json
-import spacy
 import os
 # Importing the libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 from flask import Flask,jsonify,request,render_template
 app = Flask(__name__)
