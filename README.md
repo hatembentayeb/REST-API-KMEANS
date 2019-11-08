@@ -25,7 +25,7 @@ note that `run` will execute the container
 
 We will use `curl` to test the `/predict` route, let's type the command :
 
-`curl -X POST -H "Content-Type: application/json" "http://localhost:3000/predict" -d @data.json | jq "."`
+`curl -X POST -H "Content-Type: application/json" "http://localhost:3000/kmeans" -d @data.json | jq "."`
 
 note that `-X POST` is the request method
           `-H ...` the Header that specify the data type (json in our case)
@@ -39,7 +39,7 @@ this a sample output :
 
 ```bash 
 
-Ξ datascience-opening/REST-API-KMEANS git:(master) ▶ curl -X POST -H "Content-Type: application/json" "http://localhost:4000/predict" -d @data.json | jq "."
+Ξ datascience-opening/REST-API-KMEANS git:(master) ▶ curl -X POST -H "Content-Type: application/json" "http://localhost:3000/kmeans" -d @data.json | jq "."
 zsh: correct '@data.json' to 'data.json' [nyae]? n
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
