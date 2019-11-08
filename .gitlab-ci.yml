@@ -5,24 +5,24 @@ services:
 
 variables:
     DOCKER_DRIVER: overlay
+    #add Heroku Api key value
+    HEROKU_API_KEY: 
+    HEROKU_PROJECT: datascience-club
+    HEROKU_CONTAINER_RELEASE_IMAGE: registry.heroku.com/$HEROKU_PROJECT/web
+
 
 stages:
     - devloppement
-
-    
-
-
 
 devloppement:
     stage : devloppement
     script:
          - echo -e " Start Building Docker image from Docker file ..  "
-         - docker build -t $HEROKU_APP .
+         - docker build -t $HEROKU_CONTAINER_RELEASE_IMAGE .
          - echo -e "\n build complete\n\n Start pushing image to registry.heroku.com ..."
-         - docker login --username=_ -p $HEROKU_TOKEN registry.heroku.com
-         - docker push $HEROKU_APP
+         - docker login --username=_ -p $HEROKU_TOKEN $HEROKU_CONTAINER_RELEASE_IMAGE
+         - docker push $HEROKU_CONTAINER_RELEASE_IMAGE
          - echo -e " push complete ."
          - echo -e " Start pushing the app to the developpement server .. "
-         - docker run  --rm  -e HEROKU_API_KEY=$HEROKU_TOKEN wingrunr21/alpine-heroku-cli container:release web --app datascience-club
+         - docker run  --rm  -e HEROKU_API_KEY=$HEROKU_TOKEN wingrunr21/alpine-heroku-cli container:release web --app $HEROKU_PROJECT
          - echo -e " complete"
-    
